@@ -5,8 +5,6 @@
     border-radius: 0;
 
     .select-kit-filter {
-      padding: 0.25em;
-
       & + .selected-content,
       & + .select-kit-collection {
         border-top: 1px solid var(--primary-low);
@@ -15,7 +13,6 @@
 
     .select-kit-row {
       min-height: 1px;
-      padding: 0.25em;
       border-radius: 0;
     }
 

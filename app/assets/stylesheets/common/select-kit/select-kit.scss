@@ -163,7 +163,7 @@
     box-sizing: border-box;
     align-items: center;
     justify-content: flex-start;
-    padding: 0.75em;
+    padding: 0.5em;
 
     .name {
       margin: 0;
@@ -202,7 +202,6 @@
   }
 
   .select-kit-collection {
-    padding: 0.25em;
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -244,6 +243,7 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    padding: 0.25em 0.5em;
 
     .filter-input {
       background: none;
