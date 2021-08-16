@@ -288,7 +288,6 @@ export default Component.extend(
       closeOnChange: true,
       limitMatches: null,
       placement: isDocumentRTL() ? "bottom-end" : "bottom-start",
-      placementStrategy: null,
       filterComponent: "select-kit/select-kit-filter",
       selectedNameComponent: "selected-name",
       selectedChoiceComponent: "selected-choice",
@@ -799,7 +798,7 @@ export default Component.extend(
       this.clearErrors();
 
       const inModal = this.element.closest("#discourse-modal");
-      if (inModal) {
+      if (inModal && this.site.mobileView) {
         const modalBody = inModal.querySelector(".modal-body");
         modalBody.style = "";
       }
@@ -820,7 +819,7 @@ export default Component.extend(
       this.clearErrors();
 
       const inModal = this.element.closest("#discourse-modal");
-      if (inModal) {
+      if (inModal && this.site.mobileView) {
         const modalBody = inModal.querySelector(".modal-body");
         modalBody.style.height = modalBody.clientHeight + 100 + "px";
       }
@@ -835,11 +834,7 @@ export default Component.extend(
           `#${this.selectKit.uniqueID}-body`
         );
 
-        let placementStrategy = this.selectKit.options.placementStrategy;
-        if (!placementStrategy) {
-          placementStrategy = "absolute";
-        }
-
+        const placementStrategy = this.site.mobileView ? "absolute" : "fixed";
         const verticalOffset = 3;
 
         this.popper = createPopper(anchor, popper, {
