@@ -48,6 +48,10 @@
       box-sizing: border-box;
       width: 100%;
     }
+
+    .select-kit-filter.is-expanded {
+      padding: 0.25em 0.5em;
+    }
   }
 
   &.is-loading {
@@ -243,7 +247,6 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 0.25em 0.5em;
 
     .filter-input {
       background: none;
