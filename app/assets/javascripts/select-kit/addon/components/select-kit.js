@@ -119,6 +119,8 @@ export default Component.extend(
           deselectByValue: bind(this, this.deselectByValue),
           append: bind(this, this.append),
           cancelSearch: bind(this, this._cancelSearch),
+          triggerSearch: bind(this, this.triggerSearch),
+          focusFilter: bind(this, this._focusFilter),
 
           onOpen: bind(this, this._onOpenWrapper),
           onClose: bind(this, this._onCloseWrapper),
@@ -943,6 +945,8 @@ export default Component.extend(
       }
 
       if (!this.selectKit.mainElement().open) {
+        const headerContainer = this.getHeader();
+        headerContainer && headerContainer.focus({ preventScroll: true });
         return;
       }
 

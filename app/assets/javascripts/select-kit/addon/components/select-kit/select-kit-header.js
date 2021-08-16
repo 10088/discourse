@@ -137,11 +137,7 @@ export default Component.extend(UtilsMixin, {
       if (this.selectKit.isExpanded) {
         this._focusFilterInput();
       } else {
-        // relying on passing the event to the input is risky as it could not work
-        // dispatching the event won't work as the event won't be trusted
-        // safest solution is to filter event and prefill filter with it
-        const nonInputKeysRegex = /F\d+|Arrow.+|Alt|Control/;
-        if (!nonInputKeysRegex.test(event.key)) {
+        if (this.isValidInput(event.key)) {
           this.selectKit.set("filter", event.key);
           this.selectKit.mainElement().open = true;
           event.preventDefault();

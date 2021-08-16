@@ -178,6 +178,14 @@ export default Component.extend(UtilsMixin, {
       } else if (event.key === "Escape") {
         this.selectKit.mainElement().open = false;
         this.selectKit.headerElement().focus();
+      } else {
+        if (this.isValidInput(event.key)) {
+          this.selectKit.set("filter", event.key);
+          this.selectKit.focusFilter();
+          this.selectKit.triggerSearch();
+          event.preventDefault();
+          event.stopPropagation();
+        }
       }
     }
   },
