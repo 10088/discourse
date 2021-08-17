@@ -1,3 +1,4 @@
+import { INPUT_DELAY } from "discourse-common/config/environment";
 import EmberObject, { computed, get } from "@ember/object";
 import PluginApiMixin, {
   applyContentPluginApiCallbacks,
@@ -395,11 +396,18 @@ export default Component.extend(
         cancel(this._searchPromise);
       }
 
-      discourseDebounce(this, this._debouncedInput, event.target.value, 200);
+      this.selectKit.set("isLoading", true);
+
+      discourseDebounce(
+        this,
+        this._debouncedInput,
+        event.target.value,
+        INPUT_DELAY
+      );
     },
 
     _debouncedInput(filter) {
-      this.selectKit.setProperties({ filter, isLoading: true });
+      this.selectKit.set("filter", filter);
       this.triggerSearch(filter);
     },
 
