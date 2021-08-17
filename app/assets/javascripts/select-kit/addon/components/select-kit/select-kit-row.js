@@ -17,9 +17,8 @@ export default Component.extend(UtilsMixin, {
     "title",
     "rowValue:data-value",
     "rowName:data-name",
-    "ariaLabel:aria-label",
     "role",
-    "ariaSelected:aria-selected",
+    "ariaChecked:aria-checked",
     "guid:data-guid",
     "rowLang:lang",
   ],
@@ -31,7 +30,7 @@ export default Component.extend(UtilsMixin, {
     "item.classNames",
   ],
 
-  role: "region",
+  role: "menuitemradio",
 
   didInsertElement() {
     this._super(...arguments);
@@ -59,11 +58,7 @@ export default Component.extend(UtilsMixin, {
 
   lang: reads("item.lang"),
 
-  ariaLabel: computed("item.ariaLabel", "title", function () {
-    return this.getProperty(this.item, "ariaLabel") || this.title;
-  }),
-
-  ariaSelected: computed("isSelected", function () {
+  ariaChecked: computed("isSelected", function () {
     return this.isSelected ? "true" : "false";
   }),
 

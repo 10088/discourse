@@ -288,13 +288,19 @@
   }
 
   .no-content,
-  .is-loading {
+  .is-loading,
+  .results-count {
     display: flex;
     flex: 1 0 auto;
     padding: 0.5em;
     width: 100%;
     box-sizing: border-box;
     background: var(--secondary);
+  }
+
+  .results-count {
+    font-size: var(--font-down-1);
+    color: var(--primary-med-or-secondary-med);
   }
 
   .is-loading {

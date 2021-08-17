@@ -7,13 +7,12 @@ export default Component.extend({
   layout,
   classNames: ["select-kit-body"],
   classNameBindings: ["emptyBody:empty-body"],
-  attributeBindings: ["ariaLive:aria-live"],
+
   emptyBody: computed("selectKit.{filter,hasNoContent}", function () {
     return false;
   }),
-  rootEventType: "click",
 
-  ariaLive: "polite",
+  rootEventType: "click",
 
   init() {
     this._super(...arguments);

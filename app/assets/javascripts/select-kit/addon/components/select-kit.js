@@ -797,12 +797,6 @@ export default Component.extend(
 
       this.clearErrors();
 
-      const inModal = this.element.closest("#discourse-modal");
-      if (inModal && this.site.mobileView) {
-        const modalBody = inModal.querySelector(".modal-body");
-        modalBody.style = "";
-      }
-
       this.selectKit.onClose(event);
 
       this.selectKit.setProperties({
@@ -819,11 +813,6 @@ export default Component.extend(
       this.clearErrors();
 
       const inModal = this.element.closest("#discourse-modal");
-      if (inModal && this.site.mobileView) {
-        const modalBody = inModal.querySelector(".modal-body");
-        modalBody.style.height = modalBody.clientHeight + 100 + "px";
-      }
-
       this.selectKit.onOpen(event);
 
       if (!this.popper) {
